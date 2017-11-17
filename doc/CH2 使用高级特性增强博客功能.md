@@ -335,15 +335,15 @@ urlpatterns = [
 
 在浏览器中打开http://127.0.0.1:8000/blog/，点击任意文章标题到文章详细内容页面，在正文后面，你可以看到以下链接：
 
-![post_share_link](/Users/apple/profile/django_by_example/doc/project_1/figures/post_share_link.png)
+![post_share_link](../../../../.Trash/post_share_form.png)
 
 点击Share this post，我们将跳到分享邮件分享页面：
 
-![post_share_form](/Users/apple/profile/django_by_example/doc/project_1/figures/post_share_form.png)
+![post_share_form](/Users/apple/profile/django_by_example/blog/doc/figures/CH2/post_share_form.png)
 
 表单的css位于static/css/blog.css文件汇总。当我们点击send e-mail按钮时，表单将被提交并验证。如果所有字段都通过验证，且邮件正常发送，我们将得到以下页面：
 
-![post_shared](/Users/apple/profile/django_by_example/doc/project_1/figures/post_shared.png)
+![post_shared](/Users/apple/profile/django_by_example/blog/doc/figures/CH2/post_shared.png)
 
 如果输入包含无效数据，根据浏览器的不同，可能点击send e-mail显示错误提示从而无法跳转，也可能跳转后显示错误提示，重新填写表单（通过验证的字段无需重复填写）。
 
@@ -446,7 +446,7 @@ admin.site.register(Comment, CommentAdmin)
 
 运行python manage.py runserver，在浏览器中打开http://127.0.0.1:8000/admin/，可以看到评论出现在admin网站中。现在我们可以通过admin网站对comment实例进行管理。
 
-![comment_admin](/Users/apple/profile/django_by_example/doc/project_1/figures/CH2/comment_admin.png)
+![comment_admin](/Users/apple/profile/django_by_example/blog/doc/figures/CH2/comment_admin.png)
 
 ### 从模型中创建表单
 
@@ -652,15 +652,15 @@ new_comment = comment_form.save(commit=False)
 
 代码很清晰，如果存在new_comment对象，我们展示评论成功提交信息；否则，我们使用`<p>`元素渲染表单的每个字段并为表单的POST请求添加csrf token。在浏览器中打开http://127.0.0.1:8000/blog/点击任意一篇文章到文章页面，我们将看到下面的内容：
 
-![add_comment_html](/Users/apple/profile/django_by_example/doc/project_1/figures/CH2/add_comment_html.png)
+![add_comment_html](/Users/apple/profile/django_by_example/blog/doc/figures/CH2/add_comment_html.png)
 
 使用表单添加一些评论，在文章下可以看到按创建时间排序的评论：
 
-![comment_show](/Users/apple/profile/django_by_example/doc/project_1/figures/CH2/comment_show.png)
+![comment_show](/Users/apple/profile/django_by_example/blog/doc/figures/CH2/comment_show.png)
 
 在浏览器中打开http://127.0.0.1:8000/admin/blog/comment/ 将看到评论列表。点击其中的一个进行编辑，点击Active按钮并保存，我们将再次看到评论列表，看起来是这样的：
 
-![comment_manage](/Users/apple/profile/django_by_example/doc/project_1/figures/CH2/comment_manage.png)
+![comment_manage](/Users/apple/profile/django_by_example/blog/doc/figures/CH2/comment_manage.png)
 
 如果回到文章页面，我们将发现刚刚编辑过的评论不见了，计算得到的评论数也减少了一条。这是由于我们在获取评论时过滤了active为False的评论。
 
@@ -775,13 +775,13 @@ Out[7]: <QuerySet [<Tag: jazz>, <Tag: music>]>
 
 运行python manage.py runserver来运行开发服务器。在浏览器中打开http://127.0.0.1:8000/admin/taggit/tag，你将看到admin网站上taggit应用的Tag对象列表：
 
-![tag_admin](/Users/apple/profile/django_by_example/doc/project_1/figures/CH2/tag_admin.png)
+![tag_admin](/Users/apple/profile/django_by_example/blog/doc/figures/CH2/tag_admin.png)
 
 跳转到http://127.0.0.1:8000/admin/blog/post/，点击任意一个文章对象，你将看到文章对象现在包含一个这样的Tags字段：
 
 
 
-![tag_field](/Users/apple/profile/django_by_example/doc/project_1/figures/CH2/tag_field.png)
+![tag_field](/Users/apple/profile/django_by_example/blog/doc/figures/CH2/tag_field.png)
 
 现在，我们编辑blog 文章来展示tags。打开blog/post/list.html模板并在文章标题下添加以下代码：
 
@@ -793,7 +793,7 @@ Out[7]: <QuerySet [<Tag: jazz>, <Tag: music>]>
 
 
 
-![tag_post](/Users/apple/profile/django_by_example/doc/project_1/figures/CH2/tag_post.png)
+![tag_post](/Users/apple/profile/django_by_example/blog/doc/figures/CH2/tag_post.png)
 
 现在我们来编辑post_list视图以允许用户找到特定标签的所有文章。打开blog应用的views.py文件，将post_list函数更改为：
 
@@ -948,7 +948,7 @@ url(r'^tag/(?P<tag_slug>[-\w]+)/$', views.post_list, name='post_list_by_tag'),
 
 在浏览器中打开http://127.0.0.1:8000/blog/并点击任意标签，我们将看到：
 
-![tag_list](/Users/apple/profile/django_by_example/doc/project_1/figures/CH2/tag_list.png)
+![tag_list](/Users/apple/profile/django_by_example/blog/doc/figures/CH2/tag_list.png)
 
 ## 查找同类文章
 
@@ -1095,7 +1095,7 @@ render(request, 'blog/post/detail.html',
 
 现在的文章页面看起来是这样的：
 
-![similar](/Users/apple/profile/django_by_example/doc/project_1/figures/CH2/similar.png)
+![similar](/Users/apple/profile/django_by_example/blog/doc/figures/CH2/similar.png)
 
 你可以成功的向你的用户推荐相似文章了，django-taggit也包含一个similar_object()的管理器来帮助我们获取具有相同标签的文章列表，我们可以在下面链接中找到django-taggit的所有管理器：http://django-taggit.readthedocs.io/en/latest/api.html。
 

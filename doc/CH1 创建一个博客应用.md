@@ -47,7 +47,7 @@ django-admin startproject mysite
 
 这个命令将创建一个名为mysite的Django项目。让我们来看一下项目的结构：
 
-![structure](/Users/apple/dev/Django/Django_by_example/figures/structure.png)
+![structure](/Users/apple/profile/django_by_example/blog/doc/figures/CH1/structure.png)
 
 这些文件的作用是：
 
@@ -114,7 +114,7 @@ Quit the server with CONTROL-C.
 
 现在在浏览器中打开URL：http://127.0.0.1:8000/，你将看到以下页面：
 
-![first_start](/Users/apple/dev/Django/Django_by_example/figures/first_start.png)
+![first_start](/Users/apple/profile/django_by_example/blog/doc/figures/CH1/first_start.png)
 
 可以引导django开发服务器在自定义主机和端口运行，或者告诉它载入其他的setting文件，例如，可以这样运行manage.py命令：
 
@@ -164,7 +164,7 @@ python manage.py startapp blog
 
 这将创建应用的基本结构，看起来是这样的：
 
-![first_app](/Users/apple/dev/Django/Django_by_example/figures/first_app.png)
+![first_app](/Users/apple/profile/django_by_example/blog/doc/figures/CH1/first_app.png)
 
 这些文件包括：
 
@@ -352,11 +352,11 @@ Superuser created successfully.
 
 现在，通过`python manage.py runserver`运行开发服务器，在浏览器中打开http://127.0.0.1:8000/admin，将会看到admin网站的登录页面，如下图所示：
 
-![admin login](/Users/apple/dev/Django/Django_by_example/figures/admin login.png)
+![admin login](/Users/apple/profile/django_by_example/blog/doc/figures/CH1/admin login.png)
 
 使用上一步骤创建的用户登录，你将看到admin网站的索引页面如下图所示：
 
-![first_login](/Users/apple/dev/Django/Django_by_example/figures/first_login.png)
+![first_login](/Users/apple/profile/django_by_example/blog/doc/figures/CH1/first_login.png)
 
 这里你看到的Group和User模型是Django权限框架(Django.contrib.auth)的模型。如果点击Users，你见看到刚刚创建的用户。blog应用的Post模型与User模型有一个关系。记住，它是一个有author字段定义的关系。
 
@@ -377,19 +377,19 @@ admin.site.register(Post)
 
 现在在浏览器中重新载入admin网站，你应该在网站中看到如下图所示的Post模型：
 
-![add_post_model](/Users/apple/dev/Django/Django_by_example/figures/add_post_model.png)
+![add_post_model](/Users/apple/profile/django_by_example/blog/doc/figures/CH1/add_post_model.png)
 
 向Django admin网站注册一个模型后，可以得到一个接口，通过这个接口我们可以很容易的列出模型对象以及创建、修改、删除模型对象。
 
 点击Posts右侧的Add连接可以添加新的文章。你可以看到Django为我们刚刚创建的模型自动生成的表单，如下图所示：
 
-![edit_post](/Users/apple/dev/Django/Django_by_example/figures/edit_post.png)
+![edit_post](/Users/apple/profile/django_by_example/blog/doc/figures/CH1/edit_post.png)
 
 Django为每种类型的字段使用不同的表单组件。即使DateTimeField这样的复杂字段也通过接口（如JavaScript date picker)进行展示。
 
 填写表单并点击save按钮，你将被重定向到文章列表页面，这里你将看到刚刚成功添加的信息，如下图所示：
 
-![add_post](/Users/apple/dev/Django/Django_by_example/figures/add_post.png)
+![add_post](/Users/apple/profile/django_by_example/blog/doc/figures/CH1/add_post.png)
 
 ### 自定义模型展示方式
 
@@ -448,11 +448,11 @@ admin.site.register(Post, PostAdmin)
 
 现在点击Add Post连接，也将看到一些变化。当输入新文章的标题时会自动生成slug。我们使用prepopulated_field告诉Django输入title时自动生成slug。而且，现在author字段用lookup组件展示，当用户数量很多时，这种操作从从下拉框中寻找更容易，如下图所示。
 
-![raw_id_fields](/Users/apple/dev/Django/Django_by_example/figures/raw_id_fields.png)
+![raw_id_fields](/Users/apple/profile/django_by_example/blog/doc/figures/CH1/raw_id_fields.png)
 
 点击图中的放大镜，将会出现搜索页面，如下图所示：
 
-![raw_id_fields_lookup](/Users/apple/dev/Django/Django_by_example/figures/raw_id_fields_lookup.png)
+![raw_id_fields_lookup](/Users/apple/profile/django_by_example/blog/doc/figures/CH1/raw_id_fields_lookup.png)
 
 我们已经使用很少的代码自定义了模型在admin网站的展示形式，后续章节我们会涉及更多自定义及扩张admin网站的方法。
 
@@ -881,7 +881,7 @@ class Post(models.Model):
 
 在blog应用下创建以下目录和文件：
 
-![template](/Users/apple/dev/Django/Django_by_example/figures/template.png)
+![template](/Users/apple/profile/django_by_example/blog/doc/figures/CH1/template.png)
 
 上图是模板的文件结构。base.html文件将包含网站的HTML结构并将内容划分为主内容和边栏。list.html和detail.html文件将继承base.html文件来分别渲染文章列表视图和细节视图。
 
@@ -947,7 +947,7 @@ python manage.py runserver
 
 在浏览器中打开http://http://127.0.0.1:8000/blog/，我们将看到以下内容：
 
-![html_list](/Users/apple/dev/Django/Django_by_example/figures/html_list.png)
+![html_list](/Users/apple/profile/django_by_example/blog/doc/figures/CH1/html_list.png)
 
 如果将视图中post_list获取post的manager换为published，即将views.py中的post_list函数修改为：
 
@@ -969,7 +969,7 @@ def post_list(request):
 
 则将看到以下页面：
 
-![html_published](/Users/apple/dev/Django/Django_by_example/figures/html_published.png)
+![html_published](/Users/apple/profile/django_by_example/blog/doc/figures/CH1/html_published.png)
 
 这是由于我们之前输入的两篇文章时没有设置status的值，Django将其设为默认值draft，而published要求status的值为published，数据库没有查询到符合条件的值。我们可以通过shell或者admin修改这两个对象的status值。
 
@@ -991,7 +991,7 @@ def post_list(request):
 
 现在我们回到浏览器，点击任意一篇文章的标题，将看到以下页面：
 
-![html_post](/Users/apple/dev/Django/Django_by_example/figures/html_post.png)
+![html_post](/Users/apple/profile/django_by_example/blog/doc/figures/CH1/html_post.png)
 
 它的url为:http://127.0.0.1:8000/blog/2017/10/25/meet-django/。
 
@@ -1091,11 +1091,11 @@ paginator = Paginator(object_list, 1)
 
 我们看到的页面将会变为:
 
-![pagination_1_1](/Users/apple/dev/Django/Django_by_example/figures/pagination_1_1.png)
+![pagination_1_1](/Users/apple/profile/django_by_example/blog/doc/figures/CH1/pagination_1_1.png)
 
 点击Next，我们将会看到：
 
-![pagination_1_3](/Users/apple/dev/Django/Django_by_example/figures/pagination_1_3.png)
+![pagination_1_3](/Users/apple/profile/django_by_example/blog/doc/figures/CH1/pagination_1_3.png)
 
 而且url会变为http://127.0.0.1:8000/blog/?page=2，点击previous会回到前一个页面，但是前一个页面的url由http://127.0.0.1:8000/blog/变为http://127.0.0.1:8000/blog/?page=1。
 

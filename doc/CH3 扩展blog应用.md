@@ -26,7 +26,7 @@ Django提供一下帮助函数来帮助我们快速创建自定义模板标签�
 
 在blog应用的根目录下创建名为templatetags的目录，并在新建目录下创建名为`__init__.py`的空文件，然后在于该空文件相同的目录下创建名为`blog_tags.py`的文件。目录及文件创建完成后的blog应用文件结构是这样的：
 
-![blog_side_constructure](/Users/apple/profile/django_by_example/doc/project_1/figures/CH3/blog_side_constructure.png)
+![blog_side_constructure](/Users/apple/profile/django_by_example/blog/doc/figures/CH3/blog_side_constructure.png)
 
 文件的名称很重要，你将在模板中使用这个名称加载自定义模板标签。
 
@@ -85,7 +85,7 @@ python manage.py runserver
 
 在浏览器中打开http://127.0.0.1:8000/blog/，我们可以在右侧边栏看到所有已发布的文章信息(由于查询用的是published管理器，要想拿到正确结果需要在admin网站或者python manage.py shell将文章的状态改为published)。
 
-![blog_sp_tag](/Users/apple/profile/django_by_example/doc/project_1/figures/CH3/blog_sp_tag.png)
+![blog_sp_tag](/Users/apple/profile/django_by_example/blog/doc/figures/CH3/blog_sp_tag.png)
 
 
 
@@ -131,7 +131,7 @@ def show_latest_posts(count=5):
 
 
 
-![blog_sp_in_tag](/Users/apple/profile/django_by_example/doc/project_1/figures/CH3/blog_sp_in_tag.png)
+![blog_sp_in_tag](/Users/apple/profile/django_by_example/blog/doc/figures/CH3/blog_sp_in_tag.png)
 
 最终，由于assignment_tag已废弃，我们将再次使用simple_tag创建一个assignment_tag功能的标签，该功能是将返回的值保存在一个变量中。我们将创建一个标签来展示评论最多的文章。编辑blog_tags.py文件，并添加以下代码：
 
@@ -167,7 +167,7 @@ Queryset通过annotate()来使用Count聚合函数进行聚合查询。我们创
 
 现在，再次刷新浏览器，我们将看到这样的页面：
 
-![blog_3_tag](/Users/apple/profile/django_by_example/doc/project_1/figures/CH3/blog_3_tag.png)
+![blog_3_tag](/Users/apple/profile/django_by_example/blog/doc/figures/CH3/blog_3_tag.png)
 
 我们可以阅读官方文档了解更多关于模板标签的内容：https://docs.djangoproject.com/en/1.11/howto/custom-template-tags/。
 
@@ -226,11 +226,11 @@ Here is a list:
 And a [link to the Django website](https://www.djangoproject.com/)
 ```
 
-![add_markdown](/Users/apple/profile/django_by_example/doc/project_1/figures/CH3/add_markdown.png)
+![add_markdown](/Users/apple/profile/django_by_example/blog/doc/figures/CH3/add_markdown.png)
 
 打开浏览器，我们将看到这篇文章如何渲染，我们应该看到这样的效果：
 
-![markdown_page](/Users/apple/profile/django_by_example/doc/project_1/figures/CH3/markdown_page.png)
+![markdown_page](/Users/apple/profile/django_by_example/blog/doc/figures/CH3/markdown_page.png)
 
 
 
@@ -317,17 +317,17 @@ urlpatterns = [url(r'^admin/', admin.site.urls),
 
 现在，我们导入了需要的模块并定义了一个sitemaps字典。我们定义一个与sitemap.xml匹配并使用sitemap视图的URL，sitemaps字典传入sitamap视图，现在在浏览器中打开http://127.0.0.1:8000/sitemap.xml，我们将看到这样的XML：
 
-![sitemaps](/Users/apple/profile/django_by_example/doc/project_1/figures/CH3/sitemaps.png)：
+![sitemaps](/Users/apple/profile/django_by_example/blog/doc/figures/CH3/sitemaps.png)：
 
 
 
 每篇文章的url通过调用它的get_absolute_url()获得。lastmod属性对应我们在sitemap中指定的文章的publish日期字段，changefreq和priority属性也是从PostSitemap中获得的。你可以看到创建url时使用的域名为example.com。这个域名来自于数据库中存储的一个Site对象，example.com是我们同步数据库时自动添加的默认对象。现在在浏览器中打开http://127.0.0.1:8000/admin/sites/site/，你将看到：
 
-![site_domain](/Users/apple/profile/django_by_example/doc/project_1/figures/CH3/site_domain.png)
+![site_domain](/Users/apple/profile/django_by_example/blog/doc/figures/CH3/site_domain.png)
 
 这是sites框架的域名列表视图。这里你可以设置sites框架使用的域名或主机。为了生成存在于本地环境的URL，将域名更改为127.0.0.0:8000：
 
-![domain_to_local](/Users/apple/profile/django_by_example/doc/project_1/figures/CH3/domain_to_local.png)
+![domain_to_local](/Users/apple/profile/django_by_example/blog/doc/figures/CH3/domain_to_local.png)
 
 
 
@@ -385,7 +385,7 @@ urlpatterns = [url(r'^$', views.post_list, name='post_list'),  # post views
 
 在浏览器中打开http://127.0.0.1:8000/blog/feed/，我们应该看到最新五篇文章的RSS feed：
 
-![feeds](/Users/apple/profile/django_by_example/doc/project_1/figures/CH3/feed_link.png)
+![feeds](/Users/apple/profile/django_by_example/blog/doc/figures/CH3/feed_link.png)
 
 如果这一个RSS客户端打开同样的URL，你将看到一个用户友好的feed。
 
@@ -397,7 +397,7 @@ urlpatterns = [url(r'^$', views.post_list, name='post_list'),  # post views
 
 在浏览器中打开http://127.0.0.1:8000/blog/，我们在边栏中可以看到转向blog feed的新链接：
 
-![feed_link](/Users/apple/profile/django_by_example/doc/project_1/figures/CH3/feed_link.png)
+![feed_link](/Users/apple/profile/django_by_example/blog/doc/figures/CH3/feed_link.png)
 
 
 
