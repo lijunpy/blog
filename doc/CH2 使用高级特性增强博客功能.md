@@ -311,9 +311,11 @@ urlpatterns = [
 <input type='hidden' name='csrfmiddlewaretoken' value='4WZ53yXqRomGrnH1xFeaXlVGeqPQzgJdGAE3D9ZoWpY9qknlUFLNyRMgFqATIRea' />
 ```
 
-注意：
+> 注意：
+>
+> 默认，Django为所有POST请求检查CSRFtoken。所以我们需要通过POST提交的表单添加csrf_token。
 
-默认，Django为所有POST请求检查CSRFtoken。所以我们需要通过POST提交的表单添加csrf_token。
+
 
 编辑blog/post/detail.html模板并在{{ post.body|linebreaks }}后添加分享链接：
 
